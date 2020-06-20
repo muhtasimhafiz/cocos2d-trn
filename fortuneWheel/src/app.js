@@ -73,6 +73,29 @@ var HelloWorldLayer = cc.Layer.extend({
         return true;
     },
 
+
+    pinRotate(a){
+                let rotate =  new cc.RotateBy(0.2, -35)
+                let pin_action1 =  new cc.EaseBounceOut(rotate)
+
+                let rotat_Back =new  cc.RotateBy(0.25,35)
+                let pin_action2 =  new cc.EaseBounceOut(rotat_Back)
+
+                cc.log("pin rotate: a/30 "+a%30)
+
+               // let reapeat_action =  cc.Repeat.create(pin_action1,Math.trunc(a/30))
+
+                let sequence_action =  cc.Sequence.create(pin_action1,rotat_Back)
+                let reapeat_action =  cc.Repeat.create(sequence_action,12)
+                let Sequence_action2 = new cc.Sequence(reapeat_action,cc.RotateTo.create(0.5,0))
+
+                
+
+                this.pin.runAction(reapeat_action)
+
+
+    },
+
     touchEvent: function(sender,type)
     {
         switch(type)
@@ -114,24 +137,9 @@ var HelloWorldLayer = cc.Layer.extend({
 
                 var  sprite_action = new cc.RotateBy(5, -a)
 
-                // //pin action//
-
-                // let rotate =  new cc.RotateBy(Math.trunc(a/30), -35)
-                // let pin_action1 =  new cc.EaseBounceOut(rotat)
-
-                // let rotat_Back =new  cc.RotateBy(0.5,35)
-                // let pin_action2 =  new cc.EaseBounceOut(rotatBack)
-
-                // //let sequence_action =  cc.Sequence.create(rotat,rotatBack)
-
-                // //var sprite_action = cc.MoveBy.create(2.0, cc.p(50, 100));
-                // //var sprite_action2 = cc.FadeTo.create(2.0, 0);
+                this.pinRotate(a)
 
 
-
-		        // var sequence_action = cc.Sequence.create(new cc.Repeat(pin_action1,Math.trunc(a/360)), rotat_Back);
-
-                // this.pin.runAction(sequence_action)
 
 
 
