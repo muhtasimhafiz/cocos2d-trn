@@ -5,7 +5,9 @@ var res = {
     Bg:"res/EndlessBackground.png",
     Egg:"res/Egg.png",
     Basket:"res/basket.png",
-    Cracked_EGG:"res/cracked_egg.png"
+    Cracked_EGG:"res/cracked_egg.png",
+    GameOver:"res/GameOver.png"
+
 
 };
 
